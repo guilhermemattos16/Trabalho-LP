@@ -1,4 +1,4 @@
-// Biblioteca de tratamento de exceções
+// Biblioteca de tratamento de excecoes
 #include <iostream> 
 #include <string>       
 #include <exception>    /* bad_alloc, bad_cast, bad_exception e etc...  */  
@@ -8,26 +8,26 @@ using namespace std;
 
 template <class T> class excecoes {
  public:
-    class erro{ }; /*classe para referência na ocorrencia de erro. Utiliza-se construtor por ocultação*/
-    void Mensagem(string msg); /*Permite passar por parâmetro qualquer mensagem e exibi-la para o usuário*/
-    bool isDivByZero(T numero); /*retorna true se ocorreu uma tentativa de divisão por zero*/
+    class erro{ }; /*classe para referï¿½ncia na ocorrencia de erro. Utiliza-se construtor por ocultaï¿½ï¿½o*/
+    void Mensagem(string msg); /*Permite passar por parï¿½metro qualquer mensagem e exibi-la para o usuï¿½rio*/
+    bool isDivByZero(T numero); /*retorna true se ocorreu uma tentativa de divisï¿½o por zero*/
     bool isNegativeSQR(T numero); /*retorna true se houver tentativa de raiz negativa */
-    bool isNumber (T numero); /*retorna true se o valor valor passado possui apenas números */
+    bool isNumber (T numero); /*retorna true se o valor valor passado possui apenas nï¿½meros */
     bool isWord (T palavra); /*retorna true se o valor valor passado possui apenas char */
-    bool isDate (T dia, T mes, T ano); /*returna true se for uma data válida */
-    bool isIndexInvalid (T vetor[]); /*returna true se tentar acessar uma posição de um vetor inexistente */
-    T *alocation(T *ptr); /*Caso não ocorra um erro de alocação de memória devolve um ponteriro alocado */
-    /*....demais métodos para tratamento de erros */
+    bool isDate (T dia, T mes, T ano); /*returna true se for uma data vï¿½lida */
+    bool isIndexInvalid (T vetor[]); /*returna true se tentar acessar uma posiï¿½ï¿½o de um vetor inexistente */
+    T *alocation(T *ptr, int tamanho); /*Caso nï¿½o ocorra um erro de alocaï¿½ï¿½o de memï¿½ria devolve um ponteriro alocado */
+    /*....demais mï¿½todos para tratamento de erros */
  private:
     T item; /*Atributo privado que futuramente pode ser utilizado*/
 };
 
-template <class T> void excecoes<T>:: Mensagem(string msg) /*implementação do método mensagem */
+template <class T> void excecoes<T>:: Mensagem(string msg) /*implementaï¿½ï¿½o do mï¿½todo mensagem */
 {
       cout << msg << endl;    
 }  
 ///////////////////////////////////////////////////////////////////   
-template <class T> bool excecoes<T>::isDivByZero(T numero){ /*implementação da verificação de tentativa de divisao por zero */
+template <class T> bool excecoes<T>::isDivByZero(T numero){ /*implementaï¿½ï¿½o da verificaï¿½ï¿½o de tentativa de divisao por zero */
  try {       
         if (numero==0){ 
           throw (erro());            
@@ -37,7 +37,7 @@ template <class T> bool excecoes<T>::isDivByZero(T numero){ /*implementação da v
           return false;
      } // final do bloco TRY     
      catch (excecoes::erro){                      
-          Mensagem("Erro de Divisão por Zero!\n");
+          Mensagem("Erro de Divisï¿½o por Zero!\n");
      }
 }
 
@@ -122,20 +122,30 @@ template <class T> bool excecoes<T>::isDate (T dia, T mes, T ano){
      }
 }
 
-template <class T> bool excecoes<T>::isIndexInvalid (T vetor[], int tam){ 
- try { 
-        bool valor = true;
-        for(int i = 0; i < tam; i++){
-          if(i)
-        }   
-        if (!valor){ 
-          throw (erro());            
-          return true;
-        }
-        else
-          return false;
-     } // final do bloco TRY     
-     catch (excecoes::erro){                      
-          Mensagem("Erro, data invalida\n");
-     }
+// template <class T> bool excecoes<T>::isIndexInvalid (T vetor[], int tam){ 
+//  try { 
+//         bool valor = true;
+//         for(int i = 0; i < tam; i++){
+//           if(i)
+//         }   
+//         if (!valor){ 
+//           throw (erro());            
+//           return true;
+//         }
+//         else
+//           return false;
+//      } // final do bloco TRY     
+//      catch (excecoes::erro){                      
+//           Mensagem("Erro, data invalida\n");
+//      }
+// }
+
+template <class T> T* excecoes<T>::alocation(T *ptr, int tamanho){ 
+  try{
+    ptr = new T[tamanho];
+  }
+  catch(bad_alloc erro){
+    cout << "Erro de alocacao\n" << erro.what();
+  }
+  return ptr;
 }

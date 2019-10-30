@@ -67,6 +67,13 @@ int main(){
 			case 6:
 				break;
 			case 7:
+				int *ponteiro, tamanho;
+				cout << "Informe o tamanho: ";
+				cin >> tamanho;
+				ponteiro = ObjetoInt.alocation(ponteiro, tamanho);
+				ponteiro[0] = 10;
+				ponteiro[1] = 20;
+				cout << ponteiro[0] << " " << ponteiro[1]<< "\n";
 				break;
 		}
 	}while(opcao >=1 && opcao <= 7);
