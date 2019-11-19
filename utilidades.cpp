@@ -1,5 +1,4 @@
 #include "excecoes.h"
-#include <math.h>
 using namespace std;
 
 excecoes <int> ObjetoInt;
@@ -21,15 +20,15 @@ int main(){
 		opcao = menu();
 		switch(opcao){
 			case 1:
-				int numerador, denominador;
+				float numerador, denominador;
 				cout << "Digite o numerador: ";
 				cin >> numerador;
 				cout << "Digite o denominador: ";
 				cin >> denominador;
 
-				if(!ObjetoInt.isDivByZero(denominador)){
+				if(!ObjetoFloat.isDivByZero(denominador)){
 					float resultado = numerador / denominador;
-					cout << "O resultado da divisao é: "<< resultado;
+					cout << "O resultado da divisao e: "<< resultado << endl;
 				}
 				break;
 			case 2:
@@ -41,7 +40,7 @@ int main(){
 				}
 				break;
 			case 3:
-				
+
 				cout << "Digite: ";
 				cin >> numero;
 				if(!ObjetoString.isNumber(numero)){
@@ -77,8 +76,8 @@ int main(){
 				break;
 		}
 	}while(opcao >=1 && opcao <= 7);
-	
-	
+
+
 
 	return 0;
 }
