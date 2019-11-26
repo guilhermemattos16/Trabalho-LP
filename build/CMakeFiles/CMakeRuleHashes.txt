@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+f4dd05fc397e06f26803a25d37a0a91a PDFWriterTestPlayground/CMakeFiles/check

@@ -1,0 +1,30 @@
+# -*- mode: cmake -*-
+
+# Copyright (c) 2005-2009 Jaroslav Gresula
+# 
+# Distributed under the MIT license (See accompanying file
+# LICENSE.txt or copy at http://jagpdf.org/LICENSE.txt)
+#
+
+SET(CPACK_CMAKE_GENERATOR "Unix Makefiles")
+
+SET(CPACK_GENERATOR "TBZ2")
+SET(CPACK_PACKAGE_NAME "jagpdf")
+SET(CPACK_PACKAGE_FILE_NAME "jagpdf-1.4.0.src")
+SET(CPACK_PACKAGE_DESCRIPTION "/home/guilherme/ufes/Trabalho-LP/jagpdf-1.4.0/README.txt")
+SET(CPACK_IGNORE_FILES 
+  "/\\.svn/"
+  "/\\.git"
+  "/home/guilherme/ufes/Trabalho-LP/jagpdf-1.4.0/external"
+  "/home/guilherme/ufes/Trabalho-LP/jagpdf-1.4.0/code/test"
+  ".*\\.pyc"
+  ".*~"
+  ".*#")
+SET(CPACK_INCLUDE_TOPLEVEL_DIRECTORY 0)
+SET(CPACK_INSTALLED_DIRECTORIES "/home/guilherme/ufes/Trabalho-LP/jagpdf-1.4.0;/jagpdf-1.4.0")
+
+SET(CPACK_PACKAGE_VERSION "1.4.0")
+SET(CPACK_PACKAGE_VERSION_MAJOR "1")
+SET(CPACK_PACKAGE_VERSION_MINOR "4")
+SET(CPACK_PACKAGE_VERSION_PATCH "0")
+
